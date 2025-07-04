@@ -44,8 +44,8 @@ class GnomeImageViewer:
         
         # Display state
         self.zoom_factor = 1.0
-        self.min_zoom = 0.1
-        self.max_zoom = 20.0
+        self.min_zoom = 0.25
+        self.max_zoom = 5.0
         self.zoom_step = 0.1
         self.rotation_angle = 0
         self.flip_horizontal = False

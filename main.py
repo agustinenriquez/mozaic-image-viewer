@@ -956,18 +956,11 @@ class GnomeImageViewer:
         
         self.last_scroll_time = current_time
         
-        # Zoom with mouse wheel (only with Control key to prevent accidental zoom)
-        if event.state & 0x4:  # Control key pressed
-            if (hasattr(event, 'delta') and event.delta > 0) or event.num == 4:
-                self.zoom_in()
-            elif (hasattr(event, 'delta') and event.delta < 0) or event.num == 5:
-                self.zoom_out()
-        # Allow touchpad zoom without Control key but with stricter throttling
-        elif hasattr(event, 'delta') and abs(event.delta) > 1:
-            if event.delta > 0:
-                self.zoom_in()
-            elif event.delta < 0:
-                self.zoom_out()
+        # Zoom with mouse wheel (works without Control key)
+        if (hasattr(event, 'delta') and event.delta > 0) or event.num == 4:
+            self.zoom_in()
+        elif (hasattr(event, 'delta') and event.delta < 0) or event.num == 5:
+            self.zoom_out()
     
     def on_drop(self, event):
         """Handle drag and drop"""

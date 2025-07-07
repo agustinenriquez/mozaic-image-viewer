@@ -1,0 +1,1 @@
+# Core module for the image viewer application
